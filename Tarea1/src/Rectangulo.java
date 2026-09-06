@@ -37,7 +37,5 @@ public class Rectangulo {
 
         return  2 * (base + altura);
     }
-
-    
-    
+   
 }

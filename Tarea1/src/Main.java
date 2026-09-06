@@ -13,6 +13,7 @@ public static void menu(){
     int opcion;
 
     do{
+
         System.out.println("\n================================");
         System.out.println("||     MENU DE EJERCICIOS     ||");
         System.out.println("================================\n");
@@ -81,6 +82,7 @@ public static void menu(){
                 correo = sc.nextLine();
 
                 Persona p = new Persona(nombre, edad, correo);
+                System.out.println("\nDatos de la persona:");
                 p.mostrarInfo();
                 break;
 
@@ -98,6 +100,38 @@ public static void menu(){
                 Rectangulo r = new Rectangulo(base, altura);
                 System.out.println(r.calcularArea());
                 System.out.println(r.clacularPerimetro());   
+                break;
+
+            case 7:
+
+                String nombreEmp;
+                String correoEmp;
+                int edadEmp;
+                String puesto;
+                double salario;
+
+                sc.nextLine();
+
+                System.out.print("Nombre del empleado: ");
+                nombreEmp = sc.nextLine();
+
+                System.out.print("Correo del empleado: ");
+                correoEmp = sc.nextLine();
+
+                System.out.print("Edad del empleado: ");
+                edadEmp = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("Puesto del empleado: ");
+                puesto = sc.nextLine();
+
+                System.out.print("Salario del empleado: ");
+                salario = sc.nextDouble();
+
+                Empleado e = new  Empleado(nombreEmp, edadEmp, correoEmp, puesto, salario);
+                System.out.println("\nDatos del empleado:");
+                e.mostrarInfo();
+                System.out.print(e.calcularBono());
                 break;
 
             case 0:

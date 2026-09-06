@@ -4,6 +4,14 @@ public class Persona {
     private int edad;
     private String correo;
 
+
+    public Persona(){
+
+        nombre = "";
+        edad = 0;
+        correo = "";
+    }
+
     public Persona(String nombre, int edad, String correo) {
 
         this.nombre = nombre;
@@ -37,9 +45,7 @@ public class Persona {
     
     public void mostrarInfo(){
 
-        System.out.println("\nDatos de la persona:");
-        
-        System.out.println("\nNombre: " + getNombre() +"\nEdad: " + getEdad() + " \nCorreo: " + getCorreo() + "\n");
+        System.out.println("\nNombre: " + getNombre() +"\nEdad: " + getEdad() + " \nCorreo: " + getCorreo());
 
     }
     
