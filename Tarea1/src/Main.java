@@ -21,7 +21,7 @@ public static void menu(){
         System.out.println("3. Tabla de Multiplicar.");
         System.out.println("4. Numeros del 1 al 100.");
         System.out.println("5. Clase Persona.");
-        System.out.println("6. Clase Rectangula..");
+        System.out.println("6. Clase Rectangulo.");
         System.out.println("7. Clase Empleado.");
         System.out.println("8. Clase Figura.");
         System.out.println("9. Contador de vocales.");
@@ -54,6 +54,14 @@ public static void menu(){
                 System.out.print("Digite un número: ");
                 numero = sc.nextInt();
                 tabla(numero);  
+                break;
+
+            case 4:
+                numsDelUnoAlCien();
+                break;
+
+            case 0:
+                System.out.println("Saliendo del programa...");
                 break;
         
             default:
@@ -104,5 +112,24 @@ public static void tabla(int num){
     for(int i = 1; i <= 10; i++){
 
         System.out.println(num + " x " + i + " = " + (num * i));
+    }
+}
+
+public static void numsDelUnoAlCien(){
+
+    for(int i = 1; i <= 100; i ++){
+
+        if( i % 3 == 0 && i % 5 == 0){
+            System.out.println("FizzBuzz");
+        }
+        else if(i % 3 == 0){
+            System.out.println("Fizz");
+        }
+        else if(i % 5 == 0){
+            System.out.println("Buzz");
+        }
+        else{
+            System.out.println(i);
+        }
     }
 }
