@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public static void main(String[] args){
@@ -58,6 +59,29 @@ public static void menu(){
 
             case 4:
                 numsDelUnoAlCien();
+                break;
+
+            case 5:
+
+                String nombre;
+                int edad;
+                String correo;
+
+                sc.nextLine();
+
+                System.out.print("Nombre: ");
+                nombre = sc.nextLine();
+
+                System.out.print("Edad: ");
+                edad = sc.nextInt();
+
+                sc.nextLine();
+
+                System.out.print("Correo: ");
+                correo = sc.nextLine();
+
+                Persona p = new Persona(nombre, edad, correo);
+                p.mostrarInfo();
                 break;
 
             case 0:
