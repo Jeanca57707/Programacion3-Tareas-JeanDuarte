@@ -2,9 +2,9 @@
 
 # Descripción general
 
-La tarea uno son un subconjunto de ejercicio que abracan conceptos básicos de java como las decisiones,
+La tarea uno son un subconjunto de ejercicio que abarcan conceptos básicos de java como las decisiones,
 bucles, operaciones, herencia, clases, etc... La tarea fue colocada para práctcar estos conceptos y tener
-un mejor dominio. Se puede acceder a cada ejercicio a través de un menu con las diferentes opciones, cada una llevandolo a un ejercicio diferente,
+un mejor dominio. Se puede acceder a cada ejercicio a través de un menu con las diferentes opciones, cada una llevandolo a un ejercicio diferente.
 
 # Descripciones breves de cada ejercicio
 
@@ -38,7 +38,7 @@ Clase Abstracta "Figura". Crear una Clase abstracta llamada figura, dentro de el
 Contador de vocales. Es un programa que cuenta las vocales de una frase o palabra ingresada por el usuario.
 
 ## Ejercicio Diez
-Clase Estudiante. Se le pide 5 materias con sus calificaciones y el programa calcula el promedio V evalua si el estudiante Aprobó o Reprobó.
+Clase Estudiante. Se le pide 5 materias con sus calificaciones y el programa calcula el promedio y evalua si el estudiante Aprobó o Reprobó.
 
 # Tecnologías Usadas
 
