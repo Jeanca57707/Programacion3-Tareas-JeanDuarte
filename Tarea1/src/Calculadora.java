@@ -117,7 +117,7 @@ public class Calculadora{
             }
            
         }while(opc != 5);
-         sc.close();
+       
     }
 
 }
