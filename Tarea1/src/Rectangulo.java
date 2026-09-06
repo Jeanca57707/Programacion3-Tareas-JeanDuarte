@@ -25,7 +25,18 @@ public class Rectangulo {
         this.altura = altura;
     }
 
-    
+    public double calcularArea(){
+
+        System.out.println("\nArea del rectangulo:");
+
+        return base * altura;
+    }
+    public double clacularPerimetro(){
+
+        System.out.println("\nPerimetro del rectangulo:");
+
+        return  2 * (base + altura);
+    }
 
     
     

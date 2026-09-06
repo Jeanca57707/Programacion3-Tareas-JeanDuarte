@@ -84,6 +84,22 @@ public static void menu(){
                 p.mostrarInfo();
                 break;
 
+            case 6:
+
+                double altura;
+                double base; 
+
+                System.out.print("Altura: ");
+                altura = sc.nextDouble();
+
+                System.out.print("Base: ");
+                base = sc.nextDouble();
+
+                Rectangulo r = new Rectangulo(base, altura);
+                System.out.println(r.calcularArea());
+                System.out.println(r.clacularPerimetro());   
+                break;
+
             case 0:
                 System.out.println("Saliendo del programa...");
                 break;
