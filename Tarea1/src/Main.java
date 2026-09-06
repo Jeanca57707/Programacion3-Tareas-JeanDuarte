@@ -140,6 +140,26 @@ public static void menu(){
                 System.out.print("La frase/palabra tiene : " + contarVocales(string) + " vocales\n");
                 break;
 
+            case 10:
+                String nomEstudiante;
+                int [] calificaciones = new int[5];
+
+                sc.nextLine();
+                System.out.print("Nombre del estudiante: ");
+                nomEstudiante = sc.nextLine();
+
+                for(int i = 0; i <5 ; i++){
+                    int nota;
+                    System.out.print("Calificacion de la materia " + (i + 1) + ": ");
+                    nota = sc.nextInt();
+                    calificaciones[i] = nota;
+                }
+
+                Estudiante estudiante = new Estudiante(nomEstudiante, calificaciones);
+                System.out.println("\nPromedio: " + estudiante.calcularPromedio());
+                System.out.println(estudiante.obtenerCalificacion());
+                break;
+
             case 0:
                 System.out.println("Saliendo del programa...");
                 break;
