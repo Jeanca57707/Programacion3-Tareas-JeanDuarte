@@ -37,13 +37,11 @@ public static void menu(){
 
         switch (opcion) {
             case 1:
-
                 Calculadora calculadora = new Calculadora();
                 calculadora.menuCalculadora();
                 break;
 
             case 2:
-
                 int num;
                 System.out.print("Digite un número: ");
                 num = sc.nextInt();
@@ -51,7 +49,6 @@ public static void menu(){
                 break;
 
             case 3:
-
                 int numero;
                 System.out.print("Digite un número: ");
                 numero = sc.nextInt();
@@ -63,7 +60,6 @@ public static void menu(){
                 break;
 
             case 5:
-
                 String nombre;
                 int edad;
                 String correo;
@@ -87,7 +83,6 @@ public static void menu(){
                 break;
 
             case 6:
-
                 double altura;
                 double base; 
 
@@ -103,7 +98,6 @@ public static void menu(){
                 break;
 
             case 7:
-
                 String nombreEmp;
                 String correoEmp;
                 int edadEmp;
@@ -136,6 +130,14 @@ public static void menu(){
 
             case 8:
                 menuPolimorfismo();
+                break;
+
+            case 9:
+                String string;
+                sc.nextLine();
+                System.out.print("Escriba una palabra o una frase: ");
+                string = sc.nextLine();
+                System.out.print("La frase/palabra tiene : " + contarVocales(string) + " vocales\n");
                 break;
 
             case 0:
@@ -211,6 +213,25 @@ public static void numsDelUnoAlCien(){
         }
     }
 }
+
+
+public static int contarVocales(String string){
+
+    int contador = 0;
+    String stringMinus = string.toLowerCase();
+
+    for(int i = 0; i < stringMinus.length(); i ++){
+
+        char letra = stringMinus.charAt(i);
+
+        if(letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u'){
+            contador ++;
+        }
+    }
+    return contador;
+}
+
+
 
 public static void menuPolimorfismo(){
 
