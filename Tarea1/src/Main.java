@@ -30,6 +30,8 @@ public static void menu(){
 
         System.out.print("Elija una opción: ");
         opcion = sc.nextInt();
+        System.out.print("\n");
+        
 
         switch (opcion) {
             case 1:
@@ -44,6 +46,14 @@ public static void menu(){
                 System.out.print("Digite un número: ");
                 num = sc.nextInt();
                 numPar_o_Impar(num);  
+                break;
+
+            case 3:
+
+                int numero;
+                System.out.print("Digite un número: ");
+                numero = sc.nextInt();
+                tabla(numero);  
                 break;
         
             default:
@@ -85,4 +95,14 @@ public static void numPar_o_Impar(int num){
         }
     }
     
+}
+
+public static void tabla(int num){
+
+    System.out.println("Tabla de multiplicar del " + num +"\n");
+
+    for(int i = 1; i <= 10; i++){
+
+        System.out.println(num + " x " + i + " = " + (num * i));
+    }
 }
