@@ -134,6 +134,10 @@ public static void menu(){
                 System.out.print(e.calcularBono());
                 break;
 
+            case 8:
+                menuPolimorfismo();
+                break;
+
             case 0:
                 System.out.println("Saliendo del programa...");
                 break;
@@ -206,4 +210,54 @@ public static void numsDelUnoAlCien(){
             System.out.println(i);
         }
     }
+}
+
+public static void menuPolimorfismo(){
+
+    Scanner sc = new Scanner(System.in);
+    int opc;
+
+    do{
+
+        System.out.println("1. Calcular Area de un circulo.");
+        System.out.println("2. Calcular Area de un triangulo.");
+        System.out.println("3. Salir.");
+        System.out.print("\nElija una opcion: ");
+
+        opc = sc.nextInt();
+
+        switch (opc) {
+            case 1:
+
+                double radio;
+                System.out.print("Digite el valor del radio: ");
+                radio = sc.nextDouble();
+                Circulo circulo = new Circulo(radio);
+                System.out.println(circulo.calcularArea());
+                System.out.println("\n");
+                break;
+
+            case 2:
+
+                double base;
+                double altura;
+                System.out.print("Digite el valor de la base: ");
+                base = sc.nextDouble();
+                System.out.print("Digite el valor de la altura: ");
+                altura = sc.nextDouble();
+                Triangulo triangulo = new Triangulo(base, altura);
+                System.out.println(triangulo.calcularArea());
+                System.out.println("\n");
+                break;
+
+            case 3:
+                System.out.println("Saliendo del ejercicio...");
+                break;
+        
+            default:
+                System.out.println("Opcion invalida");
+                break;
+        }
+    }while (opc != 3);
+   
 }
