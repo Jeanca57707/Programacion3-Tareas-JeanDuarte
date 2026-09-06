@@ -33,14 +33,56 @@ public static void menu(){
 
         switch (opcion) {
             case 1:
+
                 Calculadora calculadora = new Calculadora();
                 calculadora.menuCalculadora();
                 break;
+
+            case 2:
+
+                int num;
+                System.out.print("Digite un número: ");
+                num = sc.nextInt();
+                numPar_o_Impar(num);  
+                break;
         
             default:
+                System.out.println("Opcion invalida");
                 break;
         }
-    
+        
     }while(opcion != 0);
+    sc.close();
 
+}
+
+public static void numPar_o_Impar(int num){
+
+    if(num == 0){
+
+        System.out.println("El numero simplemente es " + num);
+    }
+    else if(num % 2 == 0){
+
+        if(num > 0){
+
+            System.out.println(num + " es par y positivo.");        
+        }
+        else{
+
+            System.out.println(num + " es par y negativo.");
+        }
+    }
+    else{
+
+        if(num > 0){
+
+            System.out.println(num + " es impar y positivo.");        
+        }
+        else{
+
+            System.out.println(num + " es impar y negativo.");
+        }
+    }
+    
 }

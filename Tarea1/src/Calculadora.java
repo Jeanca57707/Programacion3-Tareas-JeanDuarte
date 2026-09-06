@@ -115,7 +115,9 @@ public class Calculadora{
                     System.out.println("Opcion invalida.");
                     break;
             }
+           
         }while(opc != 5);
+         sc.close();
     }
 
 }
