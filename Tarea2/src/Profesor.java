@@ -1,4 +1,4 @@
-public class Profesor extends Empleado {
+public class Profesor extends Empleado implements Bonificable{
 
     private String asignatura;
     private int horas;
@@ -33,6 +33,13 @@ public class Profesor extends Empleado {
     @Override 
     public void trabajar(){
 
+        System.out.println(getNombre() + " esta impartiendo clases de " + getAsignatura() + " en estos momentos");
+    }
+
+    @Override 
+    public double calcularBono(){
+
+        return getSalario() * 0.15;
 
     }
 
@@ -41,10 +48,6 @@ public class Profesor extends Empleado {
 
         return super.toString() + " - " + "Asignatura que imparte: " 
         + getAsignatura() + " - " + "Horas que imparte la materia: " + getHoras();
-    }
-
-    
-
-    
+    }   
     
 }

@@ -19,6 +19,8 @@ public class Mantenimiento extends Empleado{
     @Override 
     public void trabajar(){
 
+     System.out.println(getNombre() + " se encuentra haciendo pruebas en el area de " + getAreaAsig());
+
     }
 
     @Override 

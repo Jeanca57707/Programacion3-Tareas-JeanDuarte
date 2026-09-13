@@ -1,4 +1,4 @@
-public class Administrativo extends Empleado {
+public class Administrativo extends Empleado implements Bonificable {
 
     private String departamento;
     private String cargo;
@@ -30,7 +30,13 @@ public class Administrativo extends Empleado {
     @Override 
     public void trabajar(){
 
+        System.out.println(getNombre() + " se encuentra en el apartamento de " + getDepartamento() + ". Su cargo es: " + getCargo());
 
+    }
+    @Override
+    public double calcularBono(){
+
+        return getSalario() * 0.25;
     }
 
     @Override 
