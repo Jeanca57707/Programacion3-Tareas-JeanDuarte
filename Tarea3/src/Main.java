@@ -8,9 +8,17 @@ public class Main{
         double[] precios = {45000.0, 850.0, 1200.0, 12000.0, 2500.0};
         int[] cantidades = {10, 50, 30, 8, 25};
 
+        String[] nombres = {"Ana","Luis","Maria","Carlos"};
+        double[][]parciales = {{8.5,9.0,7.5},
+                               {6.0,5.5,7.0},
+                               {9.0,8.5,9.5},
+                               {4.5,6.0,7.0}};
+        Estudiante e = new Estudiante(nombres, parciales);
+
         Inventario i = new Inventario(productos, precios, cantidades);
 
         i.mostrarInventario();
+        e.mostarParciales();
         
 
     }

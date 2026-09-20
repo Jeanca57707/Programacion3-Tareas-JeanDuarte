@@ -54,8 +54,8 @@ public class Inventario implements Buscable{
         System.out.println("------------------------------------------------------------");
 
         System.out.printf("\nTOTAL GENERAL: %.2f%n", totalGeneral);
-        System.out.println("\nEL PRODUCTO DE MAYOR VALOR ES: " + mayor());
-        System.out.println("\nEL PRODUCTO DE MENOR VALOR ES: " + menor());
+        System.out.println("\nEL PRODUCTO DE MAYOR VALOR ES: " + mayor(precios));
+        System.out.println("\nEL PRODUCTO DE MENOR VALOR ES: " + menor(precios));
         System.out.println("\nPRODUCTOS QUE ESTAN EN STOCK:");
 
         for(int i = 0; i< enStock.length; i++){
@@ -93,7 +93,7 @@ public class Inventario implements Buscable{
     }
 
     @Override
-    public String mayor(){
+    public String mayor(double [] precios){
 
         double mayor = precios[0];
         int indice = 0;
@@ -108,7 +108,7 @@ public class Inventario implements Buscable{
         return productos[indice];
     }
     @Override
-    public String menor(){
+    public String menor(double[] precios){
 
         double menor = precios[0];
         int indice = 0;
