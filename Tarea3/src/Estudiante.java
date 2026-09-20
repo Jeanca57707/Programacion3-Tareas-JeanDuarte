@@ -165,5 +165,44 @@ public class Estudiante implements Buscable{
         System.out.println("\nAPROBADOS: " + apr);
         System.out.println("\nREPROBADOS: " + rep);
     }
+    //Método para validar datos de un estudiante
+    public void validarEstudiante(){
+
+        nombre = nombre.trim();
+        correo = correo.trim();
+        matricula = matricula.trim();
+        
+        if(nombre.isBlank()){
+            System.out.println("El nombre no puede quedar vacio.");
+        }
+        else{
+            System.out.println("Nombre valido.");
+
+        }
+        if(!matricula.startsWith("202")){
+            System.out.println("Matricula invalida");
+        }
+        else if(matricula.length() != 9){
+            System.out.println("La matricula no tiene la cantidad extacta de caracteres");    
+        }
+        else{
+            System.out.println("Matricula valida");
+
+        }
+        if(!correo.contains("@")){
+            System.out.println("Este correo no es válido");
+        }
+        else if(!correo.endsWith(".edu")){
+            System.out.println("Este correo no pertenece a un dominio educativo.");
+        }
+        else{
+            System.out.println("Correo valido.");
+        }
+    }
+
+    @Override 
+    public String toString(){
+        return nombre + " - " + matricula + " - " + correo;
+    }
 
 }

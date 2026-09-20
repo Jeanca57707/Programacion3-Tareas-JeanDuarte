@@ -32,6 +32,10 @@ public class Main{
         "Maria Diaz,mariad@empresa.com,RRHH,31000\n" +                
         "Luis Marte,luism@gmail.com,Sistemas,38000";
 
+        Estudiante e1 = new Estudiante("Jean Carlos Duarte Inoa", "jean_duarte@ucne.edu", "2024-1000");
+        Estudiante e2 = new Estudiante("Pablo Santiago", "pablo@gmail.com", "2023-0012");
+        Estudiante e3 = new Estudiante("Edu Aguirre", "edu@hotmail.edu", "1000-4345");
+
         do{
 
             System.out.println("\n=====================================");
@@ -42,7 +46,7 @@ public class Main{
             System.out.println("2. Estudiantes.");
             System.out.println("3. Busqueda de producto.");
             System.out.println("4. Inventario.");
-            System.out.println("5. Inventario.");
+            System.out.println("5. Validador de datos de estudiantes.");
             System.out.println("6. Inventario.");
             System.out.println("0. Salir.");
 
@@ -83,6 +87,17 @@ public class Main{
                 
                 case 4:
 
+                    break;
+                case 5:
+                    System.out.println(e1.toString());
+                    e1.validarEstudiante();
+                    System.out.println();
+                    System.out.println(e2.toString());
+                    e2.validarEstudiante();
+                    System.out.println();
+                    System.out.println(e3.toString());
+                    e3.validarEstudiante();
+                    System.out.println();
                     break;
                 
                 case 0:
