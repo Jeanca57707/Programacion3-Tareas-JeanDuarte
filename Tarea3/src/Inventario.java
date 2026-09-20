@@ -183,5 +183,18 @@ public class Inventario implements Buscable{
             }
         }
     }
+
+    //Método para buscar un producto<
+    public int busquedaProducto(String[] productos, String busqueda){
+
+        for(int i = 0; i < productos.length; i++){
+            if(productos[i].toLowerCase().contains(busqueda.toLowerCase())){
+
+                return i;
+            }
+        }
+        return -1;
+    }
+   
      
 }
