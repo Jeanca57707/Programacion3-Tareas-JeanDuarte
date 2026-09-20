@@ -60,20 +60,23 @@ public class Main{
                     break;
                 
                 case 3:
-                    int indice = i.busquedaProducto(productos, "laptop");
-                    int indice2 = i.busquedaProducto(productos, "mousE");
-                    int indice3 = i.busquedaProducto(productos, "moNitor");
+                    String [] buscar ={"laptop", "mousE", "moNitor","Iphones"};
+                    int indice = i.busquedaProducto(productos, buscar[0]);
+                    int indice2 = i.busquedaProducto(productos, buscar[1]);
+                    int indice3 = i.busquedaProducto(productos, buscar[2]);
+                    int indice4 = i.busquedaProducto(productos, buscar[3]);
 
-                    int [] indices = {indice, indice2, indice3};
+                    int [] indices = {indice, indice2, indice3, indice4};
 
                     for(int a = 0; a < indices.length; a++){
+                        System.out.println("Estamos buscando: " + buscar[a]);
 
                         if(indices[a] != -1){
 
-                           System.out.println(productos[a]  + " - " + precios[a] + " - " + cantidades[a]);
+                           System.out.println(productos[a]  + " - " + precios[a] + " - " + cantidades[a] +"\n");
                         }
                         else{
-                           System.out.println("Objeto no encontrado.");
+                           System.out.println("Objeto no disponible");
                         }
                     } 
                     break;
