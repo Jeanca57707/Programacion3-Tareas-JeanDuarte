@@ -25,6 +25,13 @@ public class Main{
                                {4.5,6.0,7.0}};
         Estudiante e = new Estudiante(nombres, parciales);
 
+
+        String datos =  "Juan Perez,juanp@empresa.com,Sistemas,35000\n" +                
+        "Ana Lopez,anal@empresa.com,Contabilidad,28000\n" +                
+        "Carlos Ruiz,carlosr@gmail.com,Sistemas,42000\n" +                
+        "Maria Diaz,mariad@empresa.com,RRHH,31000\n" +                
+        "Luis Marte,luism@gmail.com,Sistemas,38000";
+
         do{
 
             System.out.println("\n=====================================");
@@ -72,7 +79,7 @@ public class Main{
                     break;
                 
                 case 4:
-                    
+
                     break;
                 
                 case 0:
