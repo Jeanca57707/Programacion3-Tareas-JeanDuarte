@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main{
@@ -37,6 +38,9 @@ public class Main{
         Estudiante e3 = new Estudiante("Edu Aguirre", "edu@hotmail.edu", "1000-4345");
 
         ProcesadorCSV csv = new ProcesadorCSV(datos);
+
+        CalculadoraFecha f = new CalculadoraFecha(null);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         do{
 
@@ -105,6 +109,21 @@ public class Main{
                     System.out.println(e3.toString());
                     e3.validarEstudiante();
                     System.out.println();
+                    break;
+
+                case 6:
+                    int anio = 0;
+                    f.mostrarFechaActual();
+                    System.out.println();
+                    System.out.println("Fecha en 90 dias: " + format.format(f.calcularFechaEnDias(90)));
+                    System.out.println();
+                    System.out.println("Fecha en 6 meses: " + format.format(f.calcularFechaEnMeses(6)));
+                    System.out.printf("Ingrese el anio en el que nacio: ");
+                    anio = sc.nextInt();
+                    System.out.println("La persona que digito su anio de nacimiento tiene: " + f.calcularEdad(anio) + " anios");
+                    System.out.println();
+                    System.out.println("Faltan: " + f.calcularDiasParaFinalDeAnio() + " dias para fin de anio.");
+                    
                     break;
                 
                 case 0:
