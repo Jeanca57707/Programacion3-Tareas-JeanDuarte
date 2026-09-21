@@ -36,6 +36,8 @@ public class Main{
         Estudiante e2 = new Estudiante("Pablo Santiago", "pablo@gmail.com", "2023-0012");
         Estudiante e3 = new Estudiante("Edu Aguirre", "edu@hotmail.edu", "1000-4345");
 
+        ProcesadorCSV csv = new ProcesadorCSV(datos);
+
         do{
 
             System.out.println("\n=====================================");
@@ -45,9 +47,9 @@ public class Main{
             System.out.println("1. Inventario.");
             System.out.println("2. Estudiantes.");
             System.out.println("3. Busqueda de producto.");
-            System.out.println("4. Inventario.");
+            System.out.println("4. Procesador de datos CSV.");
             System.out.println("5. Validador de datos de estudiantes.");
-            System.out.println("6. Inventario.");
+            System.out.println("6. Calculadora de fechas.");
             System.out.println("0. Salir.");
 
             System.out.printf("\nElija una opcion: ");
@@ -86,7 +88,12 @@ public class Main{
                     break;
                 
                 case 4:
-
+                    csv.formatoTabla();
+                    csv.filtrar();
+                    csv.filtrarCorreo();
+                    System.out.println("\nSalario promedio del grupo: " + csv.salario());
+                    System.out.println("\n" + csv.mayor());
+                    System.out.println("\n" + csv.menor());
                     break;
                 case 5:
                     System.out.println(e1.toString());
