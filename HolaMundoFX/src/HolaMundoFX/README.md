@@ -14,7 +14,7 @@ Este es un programa sencillo hecho en javaFX. El programa muestra una ventana co
 
 El ejercicio consta de una clase llamada "HolaMundoFX", la cual extiende de la clase Application.
 Dentro está el método "start()", el cual lleva todos los requerrimientos del ejercicio, tiene el Label de "¡Hola, Mundo!, el botón, el evento de pulsar el botón que modifica el Label, el cuerpo del ejercicio
-(layout), la escena principal y el stage. También está el método principal (Main) la cuál ejecurta todo.
+(layout), la escena principal y el stage. También está el método principal (Main) la cuál ejecutará todo.
 
 
 ## Tecnologías Usadas
