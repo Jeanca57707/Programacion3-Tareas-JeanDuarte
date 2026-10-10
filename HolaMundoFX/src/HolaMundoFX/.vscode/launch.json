@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "HolaMundoFX_43ede4bc",
+            "vmArgs": "--module-path C:\\JavaFX\\javafx-sdk-26.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path C:\\JavaFX\\javafx-sdk-26.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
