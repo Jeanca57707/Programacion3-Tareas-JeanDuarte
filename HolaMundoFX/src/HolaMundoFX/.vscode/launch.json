@@ -3,6 +3,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HolaMundoFX",
+            "request": "launch",
+            "mainClass": "HolaMundoFX",
+            "projectName": "HolaMundoFX_43ede4bc",
+            "vmArgs": "--module-path C:\\JavaFX\\javafx-sdk-26.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
