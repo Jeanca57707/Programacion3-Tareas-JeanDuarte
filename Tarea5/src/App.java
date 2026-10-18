@@ -11,8 +11,18 @@ import javafx.scene.Scene;
 import javafx.geometry.Pos;
 
 public class App extends Application{
+    
+    private double presupuestoFijo;
+    private  double presupuestoActual;
+    private Label lblPresupuesto = new Label();
 
-    private double presupuesto;
+    public double getPresupuestoFijo() {
+        return presupuestoFijo;
+    }
+    public void setPresupuestoFijo(double presupuestoFijo) {
+        this.presupuestoFijo = presupuestoFijo;
+    }
+    
     public static void main(String[] args) throws Exception {
         launch(args);
     }
@@ -23,7 +33,7 @@ public class App extends Application{
         TextField presupuestoTxt = new TextField();
         presupuestoTxt.setPromptText("Ingrese el presupuesto mensual");
 
-        Label lblPresupuesto = new Label();
+        Label lblPresupuestoFijo = new Label();
         Label mensaje = new Label();
 
         TextField descripcionTxt = new TextField();
@@ -32,22 +42,24 @@ public class App extends Application{
         TextField montoTxt = new TextField();
         montoTxt.setPromptText("Monto");
 
+        Button btnFijar = new Button("Fijar");
         Button btnAgregar = new Button("Agregar gasto");
 
         VBox gastosVB = new VBox(25);
         gastosVB.setAlignment(Pos.CENTER_LEFT);
 
+
         try {
             btnAgregar.setOnAction(e->{
             double monto = Double.parseDouble(montoTxt.getText().trim());
 
-            if(presupuesto <= 0 || monto > presupuesto){
+            if(presupuestoActual <= 0 || monto > presupuestoActual){
                 mensaje.setText("No tiene presupuesto para agregar gastos");
 
             }else{
                 HBox gastoHB = crearGasto(descripcionTxt.getText().trim(), monto);
                 gastosVB.getChildren().add(gastoHB);
-                lblPresupuesto.setText("Presupuesto: " + presupuesto);
+                
             }
 
            });   
@@ -55,18 +67,20 @@ public class App extends Application{
             mensaje.setText("Debe ingresar un monto válido");
         }
 
-        Button btnFijar = new Button("Fijar");
+
         btnFijar.setOnAction(e->{
 
             try {
-            presupuesto = Double.parseDouble(presupuestoTxt.getText().trim());
+             presupuestoFijo = Double.parseDouble(presupuestoTxt.getText().trim());
+             presupuestoActual = Double.parseDouble(presupuestoTxt.getText().trim());
 
-            if(presupuesto <= 0){
+            if(presupuestoFijo <= 0){
                 mensaje.setText("El presupuesto no puede ser menor o igual a 0");
                 presupuestoTxt.setPromptText("Ingrese el presupuesto mensual");
             }
             else{
-                lblPresupuesto.setText("Presupuesto: " +String.valueOf(presupuesto));
+                setPresupuestoFijo(presupuestoFijo);
+                lblPresupuestoFijo.setText("Presupuesto fijo: " + String.valueOf(getPresupuestoFijo()));
                 presupuestoTxt.setPromptText("Ingrese el presupuesto mensual");
             }
             
@@ -77,9 +91,9 @@ public class App extends Application{
         });
 
         HBox presupuesto = new HBox(25);
-        presupuesto.getChildren().addAll(presupuestoTxt, btnFijar);
+        presupuesto.getChildren().addAll(presupuestoTxt, btnFijar, lblPresupuestoFijo);
         VBox rama = new VBox(15);
-        rama.getChildren().addAll(presupuesto,descripcionTxt, montoTxt, btnAgregar, gastosVB, lblPresupuesto, mensaje);
+        rama.getChildren().addAll(presupuesto, descripcionTxt, montoTxt, btnAgregar, gastosVB, lblPresupuesto, mensaje);
         rama.setAlignment(Pos.CENTER);
         rama.setStyle("-fx-padding: 20px");
         Scene scene = new Scene(rama, 400, 300);
@@ -88,16 +102,38 @@ public class App extends Application{
         stage.show();
 
     }
-    public HBox crearGasto(String descripcion, double gasto){
-        
+
+    public HBox crearGasto(String descripcion, double monto){
+
         HBox gastoHb = new HBox(10);
         Label lblDescripcion = new Label(descripcion.trim());
-        Label lblGasto = new Label(String.valueOf(gasto));
+        Label lblGasto = new Label(String.valueOf(monto));
         Button btnElminar = new Button("X");
         gastoHb.getChildren().addAll(lblDescripcion, lblGasto, btnElminar);
-
-        presupuesto -= gasto;
+        presupuestoActual -= monto;
+        actualizarTotal();
     
         return gastoHb;
+    }
+
+    public void eliminarGasto(){
+
+        
+    }
+
+    public void actualizarTotal(){
+
+        if((presupuestoActual / getPresupuestoFijo()) * 100 < 70){
+            lblPresupuesto.setText("Presupuesto actual: " + presupuestoActual);
+            lblPresupuesto.setStyle("-fx-background-color: #00FF73");
+        }
+        else if((presupuestoActual / getPresupuestoFijo()) * 100 >= 70 && (presupuestoActual / getPresupuestoFijo()) * 100 <= 100){
+            lblPresupuesto.setText("Presupuesto actual: " + presupuestoActual);
+            lblPresupuesto.setStyle("-fx-background-color: #FFFF00");
+        }
+        else{
+            lblPresupuesto.setText("Presupuesto actual: " + presupuestoActual);
+            lblPresupuesto.setStyle("-fx-background-color: #FF0000");
+        }
     }
 }
