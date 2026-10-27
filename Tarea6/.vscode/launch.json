@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Tarea6_6fc84312",
+            "vmArgs": "--module-path C:\\JavaFX\\javafx-sdk-25.0.5\\lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
