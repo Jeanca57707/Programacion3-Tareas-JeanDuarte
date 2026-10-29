@@ -50,6 +50,6 @@ public class Estudiante implements Serializable {
 
     @Override 
     public String toString(){
-        return matricula + " " + nombre + " " + carrera + " " + calificacion;
+        return matricula + "; " + nombre + "; " + carrera + "; " + calificacion;
     }   
 }
