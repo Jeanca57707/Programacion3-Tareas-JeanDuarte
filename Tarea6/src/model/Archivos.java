@@ -26,12 +26,11 @@ public class Archivos {
 
     public static void leerEstudiantes() {
 
-        Datos.estudiantes().clear();
-
         if (fileEstudiantes.length() == 0) {
             System.out.println("El archivo está vacio");
 
         } else {
+            Datos.estudiantes().clear();
 
             try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes))) {
 
@@ -58,8 +57,6 @@ public class Archivos {
 
     public static void actualizarEstudiante(Estudiante estudianteEditado) {
 
-        Datos.estudiantes().clear();
-
         try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes));
                 BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))) {
 
@@ -81,13 +78,40 @@ public class Archivos {
                     bw.write(estudiante.toString());
                     bw.newLine();
                 }
-
             }
         } catch (IOException e) {
             System.out.println("Error de archivo: " + e.getMessage());
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Error de formato de numero: " + e.getMessage());
         }
+    }
 
+    public static void eliminarEstudiante(Estudiante estudianteSeleccionado) {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(Archivos.fileEstudiantes));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(Archivos.NOMBRE_ARCHIVO))) {
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.contains(estudianteSeleccionado.toString())) {
+
+                    String[] partes = linea.split("; ");
+
+                    String matricula = partes[0];
+                    String nombre = partes[1];
+                    String carrera = partes[2];
+                    float calificacion = Float.parseFloat(partes[3]);
+
+                    Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
+                    bw.write(estudiante.toString());
+                    bw.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al eliminar el estudiante del archivo");
+
+        } catch (NumberFormatException e) {
+            System.out.println("Se encontró un formato de calificación erróneo");
+        }
     }
 }

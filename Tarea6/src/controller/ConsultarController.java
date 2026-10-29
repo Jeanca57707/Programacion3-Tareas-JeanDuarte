@@ -1,10 +1,5 @@
 package controller;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import javafx.beans.property.ReadOnlyFloatWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.transformation.FilteredList;
@@ -31,19 +26,7 @@ public class ConsultarController {
     private FilteredList<Estudiante> estudianteBuscado;
 
     @FXML
-    private Button btnCerrar;
-
-    @FXML
-    private Button btnEliminar;
-
-    @FXML
-    private Button btnEditar;
-
-    @FXML
-    private Button btnBuscar;
-
-    @FXML
-    private Button btnTodos;
+    private Button btnCerrar, btnEliminar, btnEditar, btnBuscar, btnTodos;
 
     @FXML
     private TextField txtBuscarEstudiante;
@@ -98,34 +81,7 @@ public class ConsultarController {
             lblMensaje.setText("Elija un estudiante primero");
             return;
         }
-
-        Datos.estudiantes().clear();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(Archivos.fileEstudiantes));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(Archivos.NOMBRE_ARCHIVO))) {
-
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                if (!linea.contains(seleccionado.toString())) {
-
-                    String[] partes = linea.split("; ");
-
-                    String matricula = partes[0];
-                    String nombre = partes[1];
-                    String carrera = partes[2];
-                    float calificacion = Float.parseFloat(partes[3]);
-
-                    Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
-                    bw.write(estudiante.toString());
-                    bw.newLine();
-                }
-            }
-        } catch (IOException e) {
-            lblMensaje.setText("Error al eliminar el estudiante del archivo");
-
-        } catch (NumberFormatException e) {
-            lblMensaje.setText("Se encontró un formato de calificación erróneo");
-        }
+        Archivos.eliminarEstudiante(seleccionado);
     }
 
     @FXML
@@ -142,6 +98,5 @@ public class ConsultarController {
             return;
         }
         Ventanas.abrir("editar", "Editar estudiante", btnEditar.getScene().getWindow());
-
     }
 }
