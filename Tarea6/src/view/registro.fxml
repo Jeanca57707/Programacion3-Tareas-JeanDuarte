@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
+   <center>
+      <VBox prefHeight="266.0" prefWidth="521.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtMatricula" />
+            <TextField fx:id="txtNombre" />
+            <TextField fx:id="txtCarrera" />
+            <TextField fx:id="txtCalificacion" />
+            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrar" text="Registrar" />
+            <Label fx:id="lblMensaje" text="Label" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="200.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Registro de Estudiantes">
+               <HBox.margin>
+                  <Insets left="20.0" top="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="34.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnEstadisticas" mnemonicParsing="false" onAction="#ventanaEstadisticas" text="Estadisticas" />
+            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#ventanaConsultas" text="Consultar" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

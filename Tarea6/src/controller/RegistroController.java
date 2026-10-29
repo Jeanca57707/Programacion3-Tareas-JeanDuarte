@@ -61,6 +61,10 @@ public class RegistroController {
             Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
             Archivos.guardarEstudiante(estudiante);
             lblMensaje.setText("Estudiante registrado correctamente");
+            txtMatricula.clear();
+            txtCalificacion.clear();
+            txtCarrera.clear();
+            txtNombre.clear();
 
         } catch (NumberFormatException e) {
             lblMensaje.setText("Error al registrar la calificación");
@@ -74,6 +78,6 @@ public class RegistroController {
 
     @FXML 
     public void ventanaEstadisticas(){
-        Ventanas.abrir("estadisticas", "Estadisticas", btnEstadisticas.getScene().getWindow());
+        Ventanas.abrir("estadisticas", "Estadisticas Académicas", btnEstadisticas.getScene().getWindow());
     }
 }

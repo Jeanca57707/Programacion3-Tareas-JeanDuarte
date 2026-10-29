@@ -46,7 +46,6 @@ public class Archivos {
                     Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
                     Datos.estudiantes().add(estudiante);
                 }
-
             } catch (IOException e) {
                 System.out.println("Error al leer el archivo: " + e.getMessage());
             } catch (NumberFormatException e) {
