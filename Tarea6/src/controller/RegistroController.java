@@ -9,32 +9,18 @@ import model.*;
 public class RegistroController {
 
     @FXML
-    private TextField txtMatricula;
+    private TextField txtMatricula, txtNombre, txtCarrera, txtCalificacion;
 
     @FXML
-    private TextField txtNombre;
+    private Button btRegistrar, btnConsultar, btnEstadisticas;
 
     @FXML
-    private TextField txtCarrera;
-
-    @FXML
-    private TextField txtCalificacion;
-
-    @FXML
-    private Button btRegistrar;
-
-    @FXML
-    private Button btnConsultar;
-
-    @FXML
-    private Button btnAdministrar;
-
-    @FXML
-    private Label lblMensaje;
+    public Label lblMensaje;
 
     @FXML
     public void initialize() {
 
+        Archivos.leerEstudiantes();
         txtMatricula.setPromptText("Matrícula");
         txtNombre.setPromptText("Nombre completo");
         txtCalificacion.setPromptText("Calificación final");
@@ -54,14 +40,21 @@ public class RegistroController {
                     || txtCalificacion.getText().trim().isEmpty()) {
 
                 lblMensaje.setText("No puede dejar ningún campo vacío");
+                return; 
             }
             if (calificacion <= 0 || calificacion > 100) {
                 lblMensaje.setText("Ingrese una calificación válida");
+                return;
+            }
+            if(matricula.length() != 8){
+                lblMensaje.setText("La matricula debe ser de 8 caracteres");
+                return;
             }
 
             for (Estudiante e : Datos.estudiantes()) {
                 if (e.getMatricula().trim().equals(matricula)) {
                     lblMensaje.setText("Ya existe un estudiante con esta matrícula");
+                    return; 
                 }
             }  
 
@@ -80,7 +73,7 @@ public class RegistroController {
     }
 
     @FXML 
-    public void ventanaAdministrar(){
-        Ventanas.abrir("administrar", "Administración de Calificaciones", btnAdministrar.getScene().getWindow());
+    public void ventanaEstadisticas(){
+        Ventanas.abrir("estadisticas", "Estadisticas", btnEstadisticas.getScene().getWindow());
     }
 }

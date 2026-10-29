@@ -20,7 +20,7 @@ public class Estudiante implements Serializable {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(String matricula) { 
         this.matricula = matricula; 
     }
 
@@ -43,6 +43,11 @@ public class Estudiante implements Serializable {
     public float getCalificacion() {
         return calificacion;
     }
+    
+    //Devuelve la calificación pero como una cadena
+    public String getStringCalificacion(){
+        return String.format("%f", getCalificacion());
+    }
 
     public void setCalificacion(float calificacion) {
         this.calificacion = calificacion;
@@ -50,6 +55,6 @@ public class Estudiante implements Serializable {
 
     @Override 
     public String toString(){
-        return matricula + "; " + nombre + "; " + carrera + "; " + calificacion;
+        return matricula + "; " + nombre + "; " + carrera + "; " + String.format("%f", calificacion);
     }   
 }

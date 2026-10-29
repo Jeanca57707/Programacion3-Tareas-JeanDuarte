@@ -51,6 +51,8 @@ public class ConsultarController {
     @FXML
     private Label lblMensaje;
 
+    public static Estudiante aEditar;
+
     @FXML
     private void initialize() {
 
@@ -129,5 +131,17 @@ public class ConsultarController {
     @FXML
     private void close() {
         tablaEstudiantes.getScene().getWindow().hide();
+    }
+
+    @FXML 
+    private void editarEstudiante(){
+
+        aEditar = tablaEstudiantes.getSelectionModel().getSelectedItem();
+        if(aEditar == null){
+            lblMensaje.setText("Elija un estudiante primero");
+            return;
+        }
+        Ventanas.abrir("editar", "Editar estudiante", btnEditar.getScene().getWindow());
+
     }
 }
