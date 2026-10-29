@@ -10,10 +10,10 @@ public class Estudiante implements Serializable {
     private float calificacion;
 
     public Estudiante(String matricula, String nombre, String carrera, float calificacion) {
-        this.matricula = matricula;
-        this.nombre = nombre;
-        this.carrera = carrera;
-        this.calificacion = calificacion;
+        setMatricula(matricula);
+        setNombre(nombre);
+        setCarrera(carrera);
+        setCalificacion(calificacion);
     }
 
     public String getMatricula() {
@@ -21,7 +21,7 @@ public class Estudiante implements Serializable {
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+        this.matricula = matricula; 
     }
 
     public String getNombre() {

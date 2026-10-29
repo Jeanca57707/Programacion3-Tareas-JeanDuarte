@@ -9,8 +9,8 @@ import java.io.FileReader;
 
 public class Archivos {
 
-    private static final String NOMBRE_ARCHIVO = "estudiante.txt";
-    private static File fileEstudiantes = new File(NOMBRE_ARCHIVO);
+    public static final String NOMBRE_ARCHIVO = "estudiante.txt";
+    public static File fileEstudiantes = new File(NOMBRE_ARCHIVO);
 
     public static void guardarEstudiante(Estudiante estudiante) {
 
@@ -54,10 +54,5 @@ public class Archivos {
                 System.out.println("Error de formato de numero en el archivo: " + e.getMessage());
             }
         }
-    }
-
-    public static void eliminarRegistroEstudiante(Estudiante estudiante){
-
-        
     }
 }
