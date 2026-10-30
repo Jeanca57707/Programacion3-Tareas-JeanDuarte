@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsultarController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tablaEstudiantes" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="matricula" prefWidth="126.66668450832367" text="Matrícula" />
+                <TableColumn fx:id="nombre" prefWidth="155.0" text="Nombre" />
+                  <TableColumn fx:id="carrera" prefWidth="155.0" text="Carrera" />
+                  <TableColumn fx:id="calificacion" prefWidth="130.66671752929688" text="Calificación" />
+              </columns>
+            </TableView>
+            <Label fx:id="lblMensaje" text="Label" />
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Consultar Estudiantes">
+               <HBox.margin>
+                  <Insets left="20.0" top="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBuscarEstudiante">
+               <HBox.margin>
+                  <Insets left="30.0" right="5.0" top="45.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarEstudiante" text="Buscar">
+               <HBox.margin>
+                  <Insets top="45.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnTodos" mnemonicParsing="false" onAction="#mostrarTodos" text="Todos">
+               <HBox.margin>
+                  <Insets top="45.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="34.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editarEstudiante" text="Editar" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarEstudiante" text="Eliminar" />
+            <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#close" text="Cerrar" />
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

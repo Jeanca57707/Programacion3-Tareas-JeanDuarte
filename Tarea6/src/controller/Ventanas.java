@@ -27,7 +27,7 @@ public final class Ventanas {
             ventana.showAndWait();
 
         } catch (IOException e) {
-            throw new IllegalStateException("No se pudo abrir la ventana");   
+            throw new IllegalStateException("No se pudo abrir la ventana", e);   
         }
     }
 }

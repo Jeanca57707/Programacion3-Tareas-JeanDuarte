@@ -2,6 +2,7 @@ package model;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,6 +12,7 @@ public class Archivos {
 
     public static final String NOMBRE_ARCHIVO = "estudiante.txt";
     public static File fileEstudiantes = new File(NOMBRE_ARCHIVO);
+    public static ArrayList<Estudiante> listaTemporal = new ArrayList<>();
 
     public static void guardarEstudiante(Estudiante estudiante) {
 
@@ -56,8 +58,7 @@ public class Archivos {
 
     public static void actualizarEstudiante(Estudiante estudianteEditado) {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes))) {
 
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -71,13 +72,19 @@ public class Archivos {
                 Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
 
                 if (estudiante.getMatricula().equals(estudianteEditado.getMatricula())) {
-                    bw.write(estudianteEditado.toString());
-                    bw.newLine();
+                    listaTemporal.add(estudiante);
                 } else {
-                    bw.write(estudiante.toString());
+                    listaTemporal.add(estudiante);
+                }
+            }
+            try(BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))){
+                for(Estudiante e : listaTemporal){
+                    bw.write(e.toString());
                     bw.newLine();
                 }
             }
+            leerEstudiantes();
+            listaTemporal.clear();
         } catch (IOException e) {
             System.out.println("Error de archivo: " + e.getMessage());
         } catch (NumberFormatException e) {
@@ -87,25 +94,31 @@ public class Archivos {
 
     public static void eliminarEstudiante(Estudiante estudianteSeleccionado) {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(Archivos.fileEstudiantes));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(Archivos.NOMBRE_ARCHIVO))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes))) {
 
             String linea;
             while ((linea = br.readLine()) != null) {
-                if (!linea.contains(estudianteSeleccionado.toString())) {
 
-                    String[] partes = linea.split("; ");
+                String[] partes = linea.split("; ");
+                String matricula = partes[0];
+                String nombre = partes[1];
+                String carrera = partes[2];
+                float calificacion = Float.parseFloat(partes[3]);
 
-                    String matricula = partes[0];
-                    String nombre = partes[1];
-                    String carrera = partes[2];
-                    float calificacion = Float.parseFloat(partes[3]);
-
+                if (!matricula.equals(estudianteSeleccionado.getMatricula())) {
                     Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
-                    bw.write(estudiante.toString());
-                    bw.newLine();
+                    listaTemporal.add(estudiante); 
                 }
             }
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))) {
+                for(Estudiante e : listaTemporal){
+                    bw.write(e.toString());
+                    bw.newLine();
+                }   
+            } 
+            leerEstudiantes();
+            listaTemporal.clear();
         } catch (IOException e) {
             System.out.println("Error al eliminar el estudiante del archivo");
 

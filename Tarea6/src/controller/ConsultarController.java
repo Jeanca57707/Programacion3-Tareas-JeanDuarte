@@ -82,6 +82,7 @@ public class ConsultarController {
             return;
         }
         Archivos.eliminarEstudiante(seleccionado);
+        lblMensaje.setText("Estudiante eliminado correctamente");
     }
 
     @FXML

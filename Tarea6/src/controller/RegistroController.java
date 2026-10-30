@@ -19,7 +19,6 @@ public class RegistroController {
 
     @FXML
     public void initialize() {
-
         Archivos.leerEstudiantes();
         txtMatricula.setPromptText("Matrícula");
         txtNombre.setPromptText("Nombre completo");
