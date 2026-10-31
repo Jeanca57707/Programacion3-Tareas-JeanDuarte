@@ -55,6 +55,28 @@ public class EstadisticaController {
         }
         return promedioGeneral / Datos.estudiantes().size();
     }
+
+    @FXML 
+    private void crearCopiaSeguridad(){
+        try {
+            Archivos.copiaSeguridad();
+        } catch (Exception e) {
+            lblMensaje.setText("Error al crear la copia");
+            return;
+        }
+        lblMensaje.setText("¡Copia creada correctamente!");
+    }
+
+    @FXML 
+    private void restaurarCopiaSeguridad(){
+        try {
+            Archivos.recuperarCopia();
+        } catch (Exception e) {
+           lblMensaje.setText("Error al restuarar los datos");
+           return;
+        }
+        lblMensaje.setText("¡Datos restuarados correctamente!");
+    }
     
     @FXML 
     private void close(){

@@ -7,10 +7,15 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class Archivos {
 
     public static final String NOMBRE_ARCHIVO = "estudiante.txt";
+    public static final String NOMBRE_ARCHIVO_DAT = "estudiante.dat";
     public static File fileEstudiantes = new File(NOMBRE_ARCHIVO);
     public static ArrayList<Estudiante> listaTemporal = new ArrayList<>();
 
@@ -76,8 +81,8 @@ public class Archivos {
                     listaTemporal.add(estudiante);
                 }
             }
-            try(BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))){
-                for(Estudiante e : listaTemporal){
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))) {
+                for (Estudiante e : listaTemporal) {
                     bw.write(e.toString());
                     bw.newLine();
                 }
@@ -106,16 +111,16 @@ public class Archivos {
 
                 if (!matricula.equals(estudianteSeleccionado.getMatricula())) {
                     Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
-                    listaTemporal.add(estudiante); 
+                    listaTemporal.add(estudiante);
                 }
             }
 
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(NOMBRE_ARCHIVO))) {
-                for(Estudiante e : listaTemporal){
+                for (Estudiante e : listaTemporal) {
                     bw.write(e.toString());
                     bw.newLine();
-                }   
-            } 
+                }
+            }
             leerEstudiantes();
             listaTemporal.clear();
         } catch (IOException e) {
@@ -123,6 +128,48 @@ public class Archivos {
 
         } catch (NumberFormatException e) {
             System.out.println("Se encontró un formato de calificación erróneo");
+        }
+    }
+
+    public static void copiaSeguridad() {
+        if (fileEstudiantes.length() == 0) {
+            System.out.println("Archivo vacio");
+            return;
+        } else {
+            try (BufferedReader br = new BufferedReader(new FileReader(fileEstudiantes));
+                    ObjectOutputStream archivoSerializable = new ObjectOutputStream(
+                            new FileOutputStream(NOMBRE_ARCHIVO_DAT))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    String[] partes = linea.split("; ");
+                    float calificacion = Float.parseFloat(partes[3]);
+
+                    Estudiante e = new Estudiante(partes[0], partes[1], partes[2], calificacion);
+                    archivoSerializable.writeObject(e);
+                }
+
+            } catch (IOException e) {
+                System.out.println("Error al crear la copia: " + e);
+            } catch (NumberFormatException e) {
+                System.out.println("Error de formato de número: " + e);
+            }
+        }
+    }
+
+    public static void recuperarCopia(){
+        Datos.estudiantes().clear();
+        try (ObjectInputStream lectura = new ObjectInputStream(new FileInputStream(NOMBRE_ARCHIVO_DAT))) {
+            
+            while(true){
+                Estudiante estudiante = (Estudiante) lectura.readObject();
+                Datos.estudiantes().add(estudiante);
+            }   
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            
+        } catch(ClassNotFoundException e){
+            System.out.println("Error: " + e.getMessage());
+
         }
     }
 }
