@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Editar Datos">
+            <Label styleClass="titulo" text="Editar Datos">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -28,7 +27,7 @@
    <center>
       <VBox prefHeight="265.0" prefWidth="577.0" spacing="15.0" BorderPane.alignment="CENTER">
          <padding>
-            <Insets left="15.0" right="150.0" />
+            <Insets bottom="10.0" left="15.0" right="150.0" top="10.0" />
          </padding>
          <children>
             <TextField fx:id="txtMatricula" />
@@ -41,9 +40,9 @@
       </VBox>
    </center>
    <bottom>
-      <HBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="36.0" prefWidth="412.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <padding>
-            <Insets left="15.0" right="15.0" />
+            <Insets left="15.0" right="15.0" top="5.0" />
          </padding>
          <children>
             <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="51.0" text="Salir" />

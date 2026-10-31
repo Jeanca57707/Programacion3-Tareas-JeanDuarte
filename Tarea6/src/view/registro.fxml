@@ -21,14 +21,14 @@
             <Label fx:id="lblMensaje" text="Label" />
          </children>
          <padding>
-            <Insets bottom="10.0" left="20.0" right="200.0" top="10.0" />
+            <Insets bottom="20.0" left="20.0" right="200.0" top="20.0" />
          </padding>
       </VBox>
    </center>
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Registro de Estudiantes">
+            <Label styleClass="titulo" text="Registro de Estudiantes">
                <HBox.margin>
                   <Insets left="20.0" top="40.0" />
                </HBox.margin>
@@ -40,13 +40,13 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="34.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="36.0" prefWidth="600.0" spacing="10.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnEstadisticas" mnemonicParsing="false" onAction="#ventanaEstadisticas" text="Estadisticas" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#ventanaConsultas" text="Consultar" />
          </children>
          <padding>
-            <Insets left="20.0" />
+            <Insets left="20.0" top="5.0" />
          </padding>
       </HBox>
    </bottom>

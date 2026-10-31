@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import controller.Ventanas;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/registro.fxml")));
+            scene.getStylesheets().add(Ventanas.class.getResource("/css/estilos.css").toExternalForm());
             stage.setTitle("Registro de estudiantes");
             stage.setScene(scene);
             stage.show();

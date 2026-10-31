@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EstadisticaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EstadisticaController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Estadísticas Generales">
+            <Label styleClass="titulo" text="Estadísticas Generales">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -25,11 +25,11 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="41.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="41.0" prefWidth="600.0" spacing="10.0" styleClass="borde-ventana" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#close" text="Cerrar">
                <HBox.margin>
-                  <Insets right="320.0" />
+                  <Insets right="460.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="btnCopiaSeguridad" mnemonicParsing="false" onAction="#crearCopiaSeguridad" prefWidth="70.0" text="Copia" />
@@ -45,9 +45,9 @@
       </HBox>
    </bottom>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="259.0" prefWidth="384.0">
+            <VBox>
                <children>
                   <HBox prefHeight="25.0" prefWidth="382.0">
                      <children>
@@ -71,7 +71,7 @@
                   <Insets bottom="10.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="259.0" prefWidth="220.0" spacing="40.0">
+            <VBox spacing="40.0">
                <children>
                   <HBox prefHeight="23.0" prefWidth="218.0">
                      <children>
@@ -94,7 +94,7 @@
                   </Label>
                   <Label fx:id="lblMensaje" text="Label">
                      <VBox.margin>
-                        <Insets top="40.0" />
+                        <Insets top="220.0" />
                      </VBox.margin>
                   </Label>
                </children>
@@ -103,6 +103,9 @@
                </padding>
             </VBox>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </HBox>
    </center>
 </BorderPane>

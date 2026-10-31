@@ -25,6 +25,7 @@ public class EditarController {
         txtNombre.setText(ConsultarController.aEditar.getNombre());
         txtCarrera.setText(ConsultarController.aEditar.getCarrera());
         txtCalificacion.setText(ConsultarController.aEditar.getStringCalificacion());
+        lblMensaje.setText("");
     }
 
     @FXML

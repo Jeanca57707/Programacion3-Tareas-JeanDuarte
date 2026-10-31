@@ -18,9 +18,10 @@ public class EstadisticaController {
     @FXML 
     private void initialize(){
         Archivos.leerEstudiantes();
-        PieChart.Data aprobados = new PieChart.Data("Aprobados", calcularAprobados());
-        PieChart.Data reprobados = new PieChart.Data("Reprobados", calcularReprobados());
+        PieChart.Data aprobados = new PieChart.Data(String.format("Aprobados (%d)", calcularAprobados()), calcularAprobados());
+        PieChart.Data reprobados = new PieChart.Data(String.format("Reprobados (%d)", calcularReprobados()), calcularReprobados());
         grafico.getData().addAll(aprobados, reprobados);
+        grafico.setLegendVisible(false);
         lblEstudiantesRegistrados.setText("Estudiantes registrados: " + Datos.estudiantes().size());
         lblPromedioGeneral.setText("Promedio General: " + String.format("%.2f", promedioGeneral()));
         lblMensaje.setText("");

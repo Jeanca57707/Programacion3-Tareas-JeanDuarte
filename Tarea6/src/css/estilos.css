@@ -1,0 +1,39 @@
+.root{
+    -fx-background-color: #f5f0e6;
+}
+
+.titulo{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins";
+}
+
+.borde-ventana{
+    -fx-background-color: #041f5a;
+    -fx-background-radius: 3;
+}
+
+.button{
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-font-family: "Poppins";
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+}
+
+.text-field{
+    -fx-background-radius: 5;
+}
+
+.label{
+    -fx-font-family: "Poppins";
+}
+
+.chart-pie.data0{
+    -fx-pie-color: #2ecc71;
+}
+.chart-pie.data1{
+    -fx-pie-color: #e74c3c;
+}
