@@ -1,0 +1,9 @@
+10006767; Heber Jose Sime; Arquitectura; 50.000000
+10004342; Jean Carlos Duarte Inoa; Ingenieria en Sistemas; 90.000000
+10005687; Angel Miguel Gonzales Tejada; Contabilidad; 78.000000
+10009834; Haniel Suarez; Ingenieria en Sistemas; 65.000000
+10006721; Saul Fabre; Gastronomía; 80.000000
+10002323; Dionicio Pujols; Medicina; 90.000000
+10007789; Jeison Amparo Abreu; Matemáticas; 99.000000
+20231234; Estharlyn Mejía Regalado; Arquitectura; 65.000000
+10004243; Andy Paulino; Mercadotecnia; 78.000000
