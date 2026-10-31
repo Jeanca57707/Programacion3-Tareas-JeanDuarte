@@ -63,6 +63,7 @@ public class EditarController {
 
     @FXML 
     private void close(){
+        ConsultarController.aEditar = null;
         btnSalir.getScene().getWindow().hide();
     }
 

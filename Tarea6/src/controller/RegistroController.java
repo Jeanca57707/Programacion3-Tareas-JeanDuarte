@@ -30,22 +30,23 @@ public class RegistroController {
     @FXML
     public void registrar() {
         try {
+            if (txtMatricula.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty()
+                    || txtCarrera.getText().trim().isEmpty() || txtCalificacion.getText().trim().isEmpty()) {
+
+                lblMensaje.setText("No puede dejar ningún campo vacío");
+                return;
+            }
+
             String matricula = txtMatricula.getText().trim();
             String nombre = txtNombre.getText().trim();
             String carrera = txtCarrera.getText().trim();
             float calificacion = Float.parseFloat(txtCalificacion.getText().trim());
 
-            if (matricula.isEmpty() || nombre.isEmpty() || carrera.isEmpty()
-                    || txtCalificacion.getText().trim().isEmpty()) {
-
-                lblMensaje.setText("No puede dejar ningún campo vacío");
-                return; 
-            }
             if (calificacion <= 0 || calificacion > 100) {
                 lblMensaje.setText("Ingrese una calificación válida");
                 return;
             }
-            if(matricula.length() != 8){
+            if (matricula.length() != 8) {
                 lblMensaje.setText("La matricula debe ser de 8 caracteres");
                 return;
             }
@@ -53,9 +54,9 @@ public class RegistroController {
             for (Estudiante e : Datos.estudiantes()) {
                 if (e.getMatricula().trim().equals(matricula)) {
                     lblMensaje.setText("Ya existe un estudiante con esta matrícula");
-                    return; 
+                    return;
                 }
-            }  
+            }
 
             Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
             Archivos.guardarEstudiante(estudiante);
@@ -70,13 +71,13 @@ public class RegistroController {
         }
     }
 
-    @FXML 
-    public void ventanaConsultas(){
+    @FXML
+    public void ventanaConsultas() {
         Ventanas.abrir("consultar", "Consultar Estudiantes", btnConsultar.getScene().getWindow());
     }
 
-    @FXML 
-    public void ventanaEstadisticas(){
+    @FXML
+    public void ventanaEstadisticas() {
         Ventanas.abrir("estadisticas", "Estadisticas Académicas", btnEstadisticas.getScene().getWindow());
     }
 }

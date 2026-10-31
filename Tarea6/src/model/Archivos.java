@@ -69,11 +69,10 @@ public class Archivos {
                 String carrera = partes[2];
                 float calificacion = Float.parseFloat(partes[3]);
 
-                Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
-
-                if (estudiante.getMatricula().equals(estudianteEditado.getMatricula())) {
+                if (matricula.equals(estudianteEditado.getMatricula())) {
                     listaTemporal.add(estudianteEditado);
                 } else {
+                    Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
                     listaTemporal.add(estudiante);
                 }
             }

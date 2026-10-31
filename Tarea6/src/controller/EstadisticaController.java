@@ -1,25 +1,29 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.*;
 
 public class EstadisticaController {
 
+    @FXML private PieChart grafico;
 
-    @FXML private Button btnCopiaSeguridad, btnRecuperarCopia;
+    @FXML private Button btnCopiaSeguridad, btnRecuperarCopia, btnCerrar;
 
-    @FXML private Label lblMensaje, lblEstudiantesRegistrados, lblEstudiantesAprobados,
-    lblEstudiantesReprobados, lblPromedioGeneral;
+    @FXML private Label lblMensaje, lblEstudiantesRegistrados,
+    lblPromedioGeneral;
 
     @FXML 
     private void initialize(){
         Archivos.leerEstudiantes();
-        lblEstudiantesAprobados.setText("Estudiantes aprobados: " + calcularAprobados());
-        lblEstudiantesReprobados.setText("Estudiantes reprobados: " + calcularReprobados());
+        PieChart.Data aprobados = new PieChart.Data("Aprobados", calcularAprobados());
+        PieChart.Data reprobados = new PieChart.Data("Reprobados", calcularReprobados());
+        grafico.getData().addAll(aprobados, reprobados);
         lblEstudiantesRegistrados.setText("Estudiantes registrados: " + Datos.estudiantes().size());
         lblPromedioGeneral.setText("Promedio General: " + String.format("%.2f", promedioGeneral()));
+        lblMensaje.setText("");
     }
 
     private int calcularAprobados(){
@@ -50,5 +54,10 @@ public class EstadisticaController {
             promedioGeneral += (double) e.getCalificacion();
         }
         return promedioGeneral / Datos.estudiantes().size();
-    }  
+    }
+    
+    @FXML 
+    private void close(){
+        btnCerrar.getScene().getWindow().hide();
+    }
 }
