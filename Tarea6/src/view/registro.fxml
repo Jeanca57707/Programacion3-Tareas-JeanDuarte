@@ -40,7 +40,7 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="34.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="34.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnEstadisticas" mnemonicParsing="false" onAction="#ventanaEstadisticas" text="Estadisticas" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#ventanaConsultas" text="Consultar" />

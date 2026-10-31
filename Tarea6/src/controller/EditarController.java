@@ -12,7 +12,7 @@ public class EditarController {
     private TextField txtMatricula, txtNombre, txtCarrera, txtCalificacion;
 
     @FXML
-    private Button btnGuardar, btnSalir;
+    private Button btnEditar, btnSalir;
 
     @FXML
     private Label lblMensaje;

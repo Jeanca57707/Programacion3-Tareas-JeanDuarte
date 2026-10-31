@@ -72,7 +72,7 @@ public class Archivos {
                 Estudiante estudiante = new Estudiante(matricula, nombre, carrera, calificacion);
 
                 if (estudiante.getMatricula().equals(estudianteEditado.getMatricula())) {
-                    listaTemporal.add(estudiante);
+                    listaTemporal.add(estudianteEditado);
                 } else {
                     listaTemporal.add(estudiante);
                 }
